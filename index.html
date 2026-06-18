@@ -70,9 +70,31 @@
     padding: 22px;
     border: 3px dashed var(--accent);
   }
-  .emoji { font-size: 3rem; margin-bottom: 10px; }
-  .title { font-size: 1.3rem; font-weight: 700; }
-  .hint { font-size: 0.8rem; opacity: 0.55; margin-top: 14px; }
+  .front {
+    background-size: cover;
+    background-position: center top;
+    overflow: hidden;
+    color: #fff;
+  }
+  .front::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+  }
+  .front .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+  }
+  .emoji { font-size: 3rem; margin-bottom: 6px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)); }
+  .title { font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 6px rgba(0,0,0,0.85); }
+  .hint { font-size: 0.8rem; opacity: 0.85; margin-top: 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
   .back {
     transform: rotateY(180deg);
     background: linear-gradient(160deg, #fff, #ffeaf4);
@@ -103,10 +125,12 @@
   <div class="grid">
     <div class="coupon" onclick="this.classList.toggle('flipped')">
       <div class="inner">
-        <div class="face front">
-          <div class="emoji">🚕</div>
-          <div class="title">Taxi-Gutschein</div>
-          <div class="hint">tippen zum Aufdecken</div>
+        <div class="face front" style="background-image:url('taxi.jpeg')">
+          <div class="content">
+            <div class="emoji">🚕</div>
+            <div class="title">Taxi-Gutschein</div>
+            <div class="hint">tippen zum Aufdecken</div>
+          </div>
         </div>
         <div class="face back">
           <div class="desc">Eine Taxifahrt geht auf mich — egal wohin, egal wann. 🌙</div>
@@ -117,10 +141,12 @@
 
     <div class="coupon" onclick="this.classList.toggle('flipped')">
       <div class="inner">
-        <div class="face front">
-          <div class="emoji">😇</div>
-          <div class="title">1-Tag-nett-sein-Gutschein</div>
-          <div class="hint">tippen zum Aufdecken</div>
+        <div class="face front" style="background-image:url('nett.jpeg')">
+          <div class="content">
+            <div class="emoji">😇</div>
+            <div class="title">1-Tag-nett-sein-Gutschein</div>
+            <div class="hint">tippen zum Aufdecken</div>
+          </div>
         </div>
         <div class="face back">
           <div class="desc">Einen ganzen Tag lang bin ich super lieb zu dir — kein Zicken, versprochen! 💕</div>
@@ -131,10 +157,12 @@
 
     <div class="coupon" onclick="this.classList.toggle('flipped')">
       <div class="inner">
-        <div class="face front">
-          <div class="emoji">✨</div>
-          <div class="title">Sticker-Lösch-Gutschein</div>
-          <div class="hint">tippen zum Aufdecken</div>
+        <div class="face front" style="background-image:url('sticker.jpeg')">
+          <div class="content">
+            <div class="emoji">✨</div>
+            <div class="title">Sticker-Lösch-Gutschein</div>
+            <div class="hint">tippen zum Aufdecken</div>
+          </div>
         </div>
         <div class="face back">
           <div class="desc">Ich lösche einen Sticker deiner Wahl — ohne zu meckern. 🧽</div>

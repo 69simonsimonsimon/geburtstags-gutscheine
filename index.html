@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday! 🎂 Deine Gutscheine</title>
+<style>
+  :root {
+    --bg1: #ffd9ec;
+    --bg2: #c9e7ff;
+    --card: #fffdf8;
+    --ink: #3a2b3f;
+    --accent: #ff5da2;
+    --gold: #e6b800;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    background-attachment: fixed;
+    padding: 40px 18px 80px;
+    text-align: center;
+  }
+  header { margin-bottom: 36px; }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 0 #fff;
+  }
+  .sub {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    opacity: 0.8;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .coupon {
+    perspective: 1200px;
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+  }
+  .inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(.2,.8,.2,1);
+    transform-style: preserve-3d;
+  }
+  .coupon.flipped .inner { transform: rotateY(180deg); }
+  .face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: 0 10px 30px rgba(120,60,100,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    border: 3px dashed var(--accent);
+  }
+  .emoji { font-size: 3rem; margin-bottom: 10px; }
+  .title { font-size: 1.3rem; font-weight: 700; }
+  .hint { font-size: 0.8rem; opacity: 0.55; margin-top: 14px; }
+  .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(160deg, #fff, #ffeaf4);
+  }
+  .back .desc { font-size: 1.02rem; line-height: 1.4; }
+  .stamp {
+    margin-top: 14px;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    border: 2px solid var(--gold);
+    border-radius: 30px;
+    padding: 4px 12px;
+    transform: rotate(-4deg);
+  }
+  footer { margin-top: 50px; font-size: 0.95rem; opacity: 0.75; }
+  .heart { color: var(--accent); }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Alles Liebe zum Geburtstag! 🎂🎈</h1>
+    <p class="sub">Für meine beste Freundin — tippe auf einen Gutschein zum Einlösen 💌</p>
+  </header>
+
+  <div class="grid">
+    <div class="coupon" onclick="this.classList.toggle('flipped')">
+      <div class="inner">
+        <div class="face front">
+          <div class="emoji">🚕</div>
+          <div class="title">Taxi-Gutschein</div>
+          <div class="hint">tippen zum Aufdecken</div>
+        </div>
+        <div class="face back">
+          <div class="desc">Eine Taxifahrt geht auf mich — egal wohin, egal wann. 🌙</div>
+          <div class="stamp">Eingelöst von ❤️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coupon" onclick="this.classList.toggle('flipped')">
+      <div class="inner">
+        <div class="face front">
+          <div class="emoji">😇</div>
+          <div class="title">1-Tag-nett-sein-Gutschein</div>
+          <div class="hint">tippen zum Aufdecken</div>
+        </div>
+        <div class="face back">
+          <div class="desc">Einen ganzen Tag lang bin ich super lieb zu dir — kein Zicken, versprochen! 💕</div>
+          <div class="stamp">Eingelöst von ❤️</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coupon" onclick="this.classList.toggle('flipped')">
+      <div class="inner">
+        <div class="face front">
+          <div class="emoji">✨</div>
+          <div class="title">Sticker-Lösch-Gutschein</div>
+          <div class="hint">tippen zum Aufdecken</div>
+        </div>
+        <div class="face back">
+          <div class="desc">Ich lösche einen Sticker deiner Wahl — ohne zu meckern. 🧽</div>
+          <div class="stamp">Eingelöst von ❤️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Gemacht mit <span class="heart">♥</span> nur für dich.
+  </footer>
+</body>
+</html>
